@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Qoliber. All rights reserved.
+ *
+ * @category    Qoliber
+ * @package     Qoliber_ProductPack
+ * @author      Jakub Winkler <jwinkler@qoliber.com>
+ * @author      Wojciech M. Wnuk <wwnuk@qoliber.com>
+ * @author      Łukasz Owczarczuk <lowczarczuk@qoliber.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view_type_pack"/>
+</page>

@@ -1,38 +1,27 @@
 {
-    "name": "enanobots/m2-product-pack",
-    "description": "Magento 2 Product Pack",
-    "homepage": "https://github.com/enanobots/m2-product-pack",
-    "type": "magento2-module",
-    "version": "1.1.0",
-    "license": "MIT",
-    "authors": [
-        {
-            "email": "nanobotsecommerce@gmail.com",
-            "name": "eCommerce Nanobots"
-        },
-        {
-            "name": "Jakub Winkler",
-            "email": "jwinkler@qsolutionsstudio.com"
-        },
-        {
-            "name": "Wojtek Wnuk",
-            "email": "wojtek@qsolutionsstudio.com"
-        },
-        {
-            "name": "Łukasz Owczrczuk",
-            "email": "lukasz@qsolutionsstudio.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.4"
-    },
-    "autoload": {
-        "files": [
-            "src/registration.php"
-        ],
-        "psr-4": {
-            "Nanobots\\ProductPack\\": "src/"
-        }
+  "name": "qoliber/m2-product-pack",
+  "version": "2.0.0",
+  "source": {
+    "type": "git",
+    "url": "git@github.com:qoliber/m2-product-pack.git",
+    "reference": "master"
+  },
+  "authors": [
+    {
+      "name": "qoliber",
+      "email": "info@qoliber.com"
     }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "license": "MIT",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Qoliber\\ProductPack\\": ""
+    }
+  }
 }

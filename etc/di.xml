@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Qoliber. All rights reserved.
+ *
+ * @category    Qoliber
+ * @package     Qoliber_ProductPack
+ * @author      Jakub Winkler <jwinkler@qoliber.com>
+ * @author      Wojciech M. Wnuk <wwnuk@qoliber.com>
+ * @author      Łukasz Owczarczuk <lowczarczuk@qoliber.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Qoliber\ProductPack\Api\PackOptionRepositoryInterface" type="Qoliber\ProductPack\Model\PackOptionRepository"/>
+    <preference for="Qoliber\ProductPack\Api\Data\PackOptionInterface" type="Qoliber\ProductPack\Model\PackOption"/>
+    <preference for="Qoliber\ProductPack\Api\Data\PackOptionSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="Qoliber_ProductPack::pack_options_as_extension_attribute" type="Qoliber\ProductPack\Plugin\PackOptions"/>
+    </type>
+    <type name="Magento\Catalog\Model\Product\TypeTransitionManager">
+        <plugin name="Qoliber_ProductPack::product_transition" type="Qoliber\ProductPack\Plugin\Product\TypeTransitionManager\Pack" sortOrder="999" />
+        <arguments>
+            <argument name="compatibleTypes" xsi:type="array">
+                <item name="pack" xsi:type="const">Qoliber\ProductPack\Model\Product\Type\Pack::TYPE_CODE</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Qoliber_ProductPack::has_options" type="Qoliber\ProductPack\Plugin\Product\HasOptions"/>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Qoliber_ProductPack::get_data_from_custom_options" type="Qoliber\ProductPack\Plugin\Product\GetDataFromCustomOptions"/>
+    </type>
+
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="inventory_reservations_placement" disabled="true"/>
+        <plugin name="Qoliber_ProductPack::inventory_reservations_placement"
+                type="Qoliber\ProductPack\Plugin\Sales\OrderManagement\AppendReservationsAfterOrderPlacementPlugin"/>
+    </type>
+
+    <type name="Magento\InventoryShipping\Model\GetItemsToDeductFromShipment">
+        <plugin name="Qoliber_ProductPack::get_items_to_deduct_from_shipment"
+                type="Qoliber\ProductPack\Plugin\GetItemsToDeductFromShipment\Execute"/>
+    </type>
+
+    <type name="Magento\InventorySales\Model\GetItemsToCancelFromOrderItem">
+        <plugin name="Qoliber_ProductPack::get_items_to_cancel_from_order_item"
+                type="Qoliber\ProductPack\Plugin\GetItemsToCancelFromOrderItem\Execute"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="Qoliber_ProductPack::check_pack_qty" type="Qoliber\ProductPack\Plugin\Quote\AddProduct"/>
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\StockItem">
+        <plugin name="Qoliber_ProductPack::QuoteItemMaxQty" type="Qoliber\ProductPack\Plugin\Quote\QuoteItemMaxQty"/>
+    </type>
+</config>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Qoliber. All rights reserved.
+ *
+ * @category    Qoliber
+ * @package     Qoliber_ProductPack
+ * @author      Jakub Winkler <jwinkler@qoliber.com>
+ * @author      Wojciech M. Wnuk <wwnuk@qoliber.com>
+ * @author      Łukasz Owczarczuk <lowczarczuk@qoliber.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <product_pack>
+            <settings>
+                <option_display_type>price</option_display_type>
+                <special_price_calc>min</special_price_calc>
+                <pdp_display_calculated_price>0</pdp_display_calculated_price>
+            </settings>
+        </product_pack>
+    </default>
+</config>

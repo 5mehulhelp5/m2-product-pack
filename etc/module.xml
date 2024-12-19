@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Qoliber. All rights reserved.
+ *
+ * @category    Qoliber
+ * @package     Qoliber_ProductPack
+ * @author      Jakub Winkler <jwinkler@qoliber.com>
+ * @author      Wojciech M. Wnuk <wwnuk@qoliber.com>
+ * @author      Łukasz Owczarczuk <lowczarczuk@qoliber.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+	<module name="Qoliber_ProductPack">
+        <sequence>
+            <module name="Magento_Catalog" />
+            <module name="Magento_Theme"/>
+        </sequence>
+    </module>
+</config>

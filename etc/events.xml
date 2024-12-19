@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Qoliber. All rights reserved.
+ *
+ * @category    Qoliber
+ * @package     Qoliber_ProductPack
+ * @author      Jakub Winkler <jwinkler@qoliber.com>
+ * @author      Wojciech M. Wnuk <wwnuk@qoliber.com>
+ * @author      Łukasz Owczarczuk <lowczarczuk@qoliber.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_commit_after">
+        <observer name="Qoliber_ProductPack::save_pack_options" instance="Qoliber\ProductPack\Observer\Product\SaveCommitAfter" />
+    </event>
+</config>
